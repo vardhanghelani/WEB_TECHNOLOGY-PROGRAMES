@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="singleclick()">single click</button>
+    <button onmouseover="hover()"> hover</button>
+    <button ondblclick="doubleclick()">double click</button>
+    <button onmousemove="movemouse()">move mouse</button>
+    <button onmouseout="mouseout()">mouse out</button>
+    <button onmouseleave="mouseleave()">mouse leave</button>
+</body>
+<script>
+function movemouse(){
+    console.log("it is moved");
+}
+function mouseleave(){
+    console.log("it is left");
+}
+function mouseout(){
+    console.log("it is out");
+}
+    function hover(){
+        console.log("it is hovered");
+    }
+    function singleclick(){
+        console.log("single clicked");
+
+    }
+    function doubleclick(){
+        console.log("double clicked");
+    }
+</script>
+</html>

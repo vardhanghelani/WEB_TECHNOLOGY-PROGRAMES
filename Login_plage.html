@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .txtbox {
+            margin: 5px;
+        }
+        .pass1 {
+            margin: 5px;
+        }
+        .pass2 {
+            margin: 5px;
+        }
+        .age {
+            margin: 5px;
+        }
+        .enroll {
+            margin: 5px;
+        }
+        .email {
+            margin: 5px;
+        }
+        .sub {
+            margin: 5px;
+        }
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="txtbox">
+            <label for="txtname">Username</label>
+            <input type="text" id="txtname" >
+        </div>
+        <div class="pass1">
+            <label for="pass">Password</label>
+            <input type="password" id="pass" >
+        </div>
+        <div class="pass2">
+            <label for="pass">Retype-Password</label>
+            <input type="password" id="repass" >
+        </div>
+        <div class="age">
+            <label for="age">Age</label>
+            <input type="number" id="age" >
+        </div>
+        <div class="enroll">
+            <label for="enroll">Enrollment No.</label>
+            <input type="number" id="enroll">
+        </div>
+         <div class="email">
+            <label for="email">Email</label>
+            <input type="email" id="email" >
+        </div> 
+        <div class="sub">
+            <button onclick="validate()">Submit</button>
+        </div>
+        <div class="success" id="successmsg" style="color: springgreen;"></div>
+        <div class="success" id="errmsg" style="color: red;"></div>
+    </div>
+    <script>
+        function validate() {
+            var user = document.getElementById("txtname").value;
+            var userRegex = /^[A-Za-z][A-Za-z0-9_]{8,}$/;
+
+            var pass = document.getElementById("pass").value;
+            var passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+
+            var pass2 = document.getElementById("repass").value;
+            var pass2Regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+           
+
+            var age = document.getElementById("age").value;
+            var ageRegex = /^\S[0-9]{0,3}$/;
+
+            var enroll = document.getElementById("enroll").value;
+            var enrollRegex = /^([23]{1})([0-9]{10})$/; 
+
+            var email = document.getElementById("email").value;
+            var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/  
+
+            if (userRegex.test(user) && passRegex.test(pass) && ageRegex.test(age) && pass == pass2 && enrollRegex.test(enroll) && emailRegex.test(email)) {
+                document.getElementById("successmsg").innerHTML = "Valid data";
+                document.getElementById("errmsg").innerHTML = "";
+            } else {
+                document.getElementById("errmsg").innerHTML = "Invalid data";
+                document.getElementById("successmsg").innerHTML = "";
+            }
+        }
+    </script>
+</body>
+</html>

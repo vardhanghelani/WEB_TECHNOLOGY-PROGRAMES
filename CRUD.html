@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="txt" placeholder="name">
+    <button onclick="add()">ADD</button>
+    <div id="display"></div>
+    <input type="number" id="index">
+    <input type="text" id="edit">
+    <button onclick="editfun()">Edit</button>
+</body>
+<script>
+    const arr = [];
+    function add() {
+        getValue = document.getElementById("txt")
+       if(getValue.value == ""){
+        document.write("please enter data");
+       }
+       else{
+        arr.push(getValue.value);
+        getValue.value = "";
+        display();
+        console.log(arr);
+       }
+    }
+    function display() {
+        let areaDis = document.getElementById('display')
+        areaDis.innerHTML = "";
+        for (i = 0; i < arr.length; i++) {
+            areaDis.innerHTML += arr[i]+`<button onclick="deletefun(${i})">Delete</button>`+" </br>";
+        }
+
+    }
+    function deletefun(i){
+        arr.splice(i,1);
+        display();
+    }
+function editfun(){
+    index=0;
+   index = document.getElementById("index");
+    let edit= document.getElementById("edit");
+    if(index.value > arr.length || index.value<=0  ){
+        document.write("no index found");
+    }
+  else{
+    arr[index.value]=edit.value;
+    display();
+  }
+    
+}
+</script>
+
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1" style="height: 200px; width: 200px; background-color: yellow;"></div>
+    <button onclick="ChangeColour()">change colour</button>
+</body>
+<script>
+    function ChangeColour(){
+        r= Math.floor(Math.random()*255);
+        g= Math.floor(Math.random()*255);
+        b= Math.floor(Math.random()*255);
+        document.getElementById("div1").style.backgroundColor="rgb("+r+","+g+","+b+")";
+    }
+</script>
+</html>
