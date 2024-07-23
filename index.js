@@ -1,18 +1,43 @@
-// const path = require("path");
-// const normalize_path = path.normalize("file:///C:/Users/student/Downloads/../11062024101324AM%20(2).pdf");
-// console.log(normalize_path);
-// const   extName = path.extname("file:///C:/Users/student/Downloads/../11062024101324AM%20(2).pdf");
-// console.log("Exact name :",extName);
-// const baseNmae= path.basename("file:///C:/Users/student/Downloads/../11062024101324AM%20(2).pdf");
-// console.log("baseName :",baseNmae);
-// const dirNmae= path.dirname("file:/student//C:/Users//Downloads/../11062024101324AM%20(2).pdf");
-// console.log("dirName :",dirNmae);
-// const Join= path.join("file:///C:/Users/student/Downloads","/../11062024101324AM%20(2).pdf");
-// console.log("after :",Join);
-// const absolute = path.isAbsolute("D:\\Yash-1:");
-// console.log("absolute :",absolute);
-const fs = require("fs");
-let write = fs.writeFileSync("demo.txt","this is node js")
-let append =fs.append
-let read = fs.readFileSync("demo.txt","utf-8");
-console.log(read);
+const http = require("http");
+const fs=require("fs");
+// const server=http.createServer((req,res)=>{
+//     res.end("hello world")
+// })
+
+
+ const server=http.createServer((req,res)=>{
+    if(req.url == "/about"){
+        fs.readFile("about.html",(err,data)=>{
+            if(err){
+                res.end(err)
+            }else{
+                res.writeHead(200,"content-type","text/html");
+                res.end(data)
+            }
+        })
+    }
+    else if(req.url == "/contact"){
+        fs.readFile("contact.html",(err,data)=>{
+            if(err){
+                res.end(err)
+            }else{
+                res.writeHead(200,"content-type","text/html");
+                res.end(data)
+            }
+        })
+    }
+    else{
+        fs.readFile("home.html",(err,data)=>{
+            if(err){
+                res.end(err)
+            }else{
+                res.writeHead(200,"content-type","text/html");
+                res.end(data)
+            }
+        })
+    }
+  
+ })
+ server.listen(3000,()=>{
+    console.log("Server started at port 3000");
+})
