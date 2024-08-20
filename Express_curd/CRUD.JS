@@ -2,7 +2,7 @@ const express = require("express");
 var bodyParser = require('body-parser')
 const app = express();
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 
 const items = [
     { id: 1, name: "John" },
@@ -12,12 +12,13 @@ const items = [
 
 ]
 //read
-app.get("/name", (req, res) => {
+app.get("/items", (req, res) => {
     res.send(items)
 })
 //create
-app.post("/addData", (req, res) => {
+app.post("/itemsadd", (req, res) => {
     const name = req.body
+    name.id =items.length ? items[items.length-1].id+1 :1;
     items.push(name);
     res.status(200);
     res.send(items);
