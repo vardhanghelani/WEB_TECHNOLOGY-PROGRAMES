@@ -1,10 +1,11 @@
-import logo from './logo.svg';
+
 import Home from './Components/Home';
 import About from './Components/About';
 import Contact from './Components/Contact';
 import NotFound from './Components/PageNotFound';
 import{BrowserRouter,Routes,Route} from 'react-router-dom'
 import Layout from './Components/Layout';
+import React from 'react';
 function App() {
   return (
     <BrowserRouter>
